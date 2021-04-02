@@ -1,4 +1,4 @@
-FROM pastimes/alpine-elixir:23.1.4-1.11.2
+FROM pastimes/alpine-elixir:23.3.1-1.11.4
 
 MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 
@@ -6,7 +6,7 @@ MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2020-11-20
+ENV REFRESHED_AT=2021-04-02
 
 # Install NPM
 RUN \
