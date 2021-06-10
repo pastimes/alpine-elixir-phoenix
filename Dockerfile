@@ -1,4 +1,4 @@
-FROM pastimes/alpine-elixir:23.3.1-1.11.4
+FROM pastimes/alpine-elixir:24.0.2-1.12.1
 
 MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 
@@ -6,24 +6,24 @@ MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2021-04-02
+ENV REFRESHED_AT=2021-06-08
 
 # Install NPM
 RUN \
-    mkdir -p /opt/app && \
-    chmod -R 777 /opt/app && \
-    apk update && \
-    apk --no-cache --update add \
-      make \
-      g++ \
-      wget \
-      curl \
-      inotify-tools \
-      nodejs \
-      nodejs-npm && \
-    npm install npm -g --no-progress && \
-    update-ca-certificates --fresh && \
-    rm -rf /var/cache/apk/*
+  mkdir -p /opt/app && \
+  chmod -R 777 /opt/app && \
+  apk update && \
+  apk --no-cache --update add \
+  make \
+  g++ \
+  wget \
+  curl \
+  inotify-tools \
+  nodejs \
+  nodejs-npm && \
+  npm install npm -g --no-progress && \
+  update-ca-certificates --fresh && \
+  rm -rf /var/cache/apk/*
 
 # Add local node module binaries to PATH
 ENV PATH=./node_modules/.bin:$PATH
